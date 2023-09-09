@@ -30,4 +30,7 @@ export class LoginPage implements OnInit {
 
   }
 
+  goHome() {
+    this.router.navigate(['home']);
+  }
 }
