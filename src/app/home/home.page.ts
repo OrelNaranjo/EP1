@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from '../service/state.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  username:string = '';
+  constructor(private stateService: StateService) {}
 
-  constructor() {}
-
+  ngOnInit(){
+    this.username = this.stateService.getUsername();
+    console.log(this.username);
+  }
+  
 }

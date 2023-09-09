@@ -17,17 +17,10 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    console.log('login');
-    console.log(this.username);
-    console.log(this.password);
-    if (this.username == 'admin' && this.password == 'admin') {
-      console.log('Bienvenido');
-      this.stateService.setUser = this.username;
-      this.router.navigate(['home'])
-    }else{
-      console.log('Usuario no encontrado');
+    if (this.stateService.login(this.username, this.password)) {
+      this.stateService.setUsername(this.username);
+      this.router.navigate(['home']);
     }
-
   }
 
   goHome() {
