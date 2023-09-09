@@ -20,6 +20,8 @@ export class LoginPage implements OnInit {
     if (this.stateService.login(this.username, this.password)) {
       this.stateService.setUsername(this.username);
       this.router.navigate(['home']);
+      this.stateService.setIsLoggedIn(true);
+      this.stateService.setUsername(this.username);
     }
   }
 

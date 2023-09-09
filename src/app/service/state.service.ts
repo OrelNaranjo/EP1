@@ -5,24 +5,31 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class StateService {
-  private isLoggedIn: boolean = false;
-  private username: string = '';
+  public isLoggedIn = new BehaviorSubject<boolean>(false);
+  public username = new BehaviorSubject<string>('');
 
   login(username: string, password: string): boolean {
     if (username == 'admin' && password == 'admin') {
-      this.isLoggedIn = true;
-      this.username = username;
       return true;
     }
     return false;
   }
 
-  getUsername(): string {
-    return this.username;
+  setIsLoggedIn(value: boolean) {
+    this.isLoggedIn.next(value);
   }
 
   setUsername(username: string) {
-    this.username = username;
+    this.username.next(username);
   }
+
+  getUsername() {
+    return this.username.asObservable();
+  }
+
+  getIsLoggedIn() {
+    return this.isLoggedIn.asObservable();
+  }
+
   constructor() { }
 }

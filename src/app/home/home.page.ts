@@ -8,11 +8,17 @@ import { StateService } from '../service/state.service';
 })
 export class HomePage {
   username:string = '';
+  isLoggedIn:boolean = false;
   constructor(private stateService: StateService) {}
 
   ngOnInit(){
-    this.username = this.stateService.getUsername();
-    console.log(this.username);
+    this.stateService.isLoggedIn.subscribe((value) => {
+      this.isLoggedIn = value;
+    });
+
+    this.stateService.username.subscribe((value) => {
+      this.username = value;
+    });
   }
   
 }
