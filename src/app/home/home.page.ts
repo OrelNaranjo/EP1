@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StateService } from '../service/state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,13 @@ import { StateService } from '../service/state.service';
 export class HomePage {
   username:string = '';
   isLoggedIn:boolean = false;
-  constructor(private stateService: StateService) {}
+  constructor(private stateService: StateService, private router: Router) {}
 
   ngOnInit(){
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);
+    }
+
     this.stateService.isLoggedIn.subscribe((value) => {
       this.isLoggedIn = value;
     });
