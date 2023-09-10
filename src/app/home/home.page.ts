@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  title: string = 'Portal Academico';
   username:string = '';
   isLoggedIn:boolean = false;
   constructor(private stateService: StateService, private router: Router) {}

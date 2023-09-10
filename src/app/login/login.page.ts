@@ -8,12 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  title: string = 'Ingresar al Portal Academico';
   username: string = '';
   password: string = '';
   constructor(private stateService:StateService, private router:Router) { }
 
   ngOnInit() {
+    console.log(this.title);
   }
 
   login() {

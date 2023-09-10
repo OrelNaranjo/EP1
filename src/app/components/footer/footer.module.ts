@@ -11,4 +11,4 @@ import { IonicModule } from '@ionic/angular';
     IonicModule
   ]
 })
-export class NavbarModule { }
+export class FooterModule { }
