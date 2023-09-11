@@ -10,7 +10,7 @@ export class StateService {
   public username = new BehaviorSubject<string>('');
 
   login(username: string, password: string): boolean {
-    if (username == 'admin' && password == 'admin') {
+    if (username == 'Marcelo' && password == '12345') {
       this.setIsLoggedIn(true);
       this.setUsername(username);
       return true;

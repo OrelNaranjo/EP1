@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { SharedModule } from '../shared/shared.module';
+import { MenuComponent } from './menu.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [MenuComponent],
   imports: [
     CommonModule,
-    IonicModule,
-    SharedModule
+    IonicModule
   ]
 })
-export class HeaderModule { }
+export class MenuModule { }

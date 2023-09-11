@@ -14,16 +14,14 @@ export class DashboardPage implements OnInit {
   constructor(private stateService:StateService, private router:Router) { }
 
   ngOnInit() {
-
-    if (this.stateService.isLoggedIn) {
-      this.stateService.username.subscribe((value) => {
-        this.username = value;
-      });
-    }
-    else
-    {
-      this.router.navigate(['home']);
-    }
+    this.stateService.getIsLoggedIn().subscribe((isLoggedIn) => {
+      if (!isLoggedIn) {
+        console.log('No estás logueado');
+        this.router.navigate(['login']);
+      }
+    });
+    this.stateService.username.subscribe((value) => {
+      this.username = value;
+    });
   }
-
 }
