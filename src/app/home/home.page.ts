@@ -1,30 +1,16 @@
-import { Component } from '@angular/core';
-import { StateService } from '../service/state.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   title: string = 'Portal Academico';
-  username:string = '';
-  isLoggedIn:boolean = false;
-  constructor(private stateService: StateService, private router: Router) {}
 
-  ngOnInit(){
-    if (!this.isLoggedIn) {
-      this.router.navigate(['/login']);
-    }
+  constructor() { }
 
-    this.stateService.isLoggedIn.subscribe((value) => {
-      this.isLoggedIn = value;
-    });
-
-    this.stateService.username.subscribe((value) => {
-      this.username = value;
-    });
+  ngOnInit() {
   }
-  
+
 }

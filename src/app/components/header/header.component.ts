@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { StateService } from 'src/app/service/state.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +9,29 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent  implements OnInit {
   @Input() title: string = '';
-  constructor() { }
+  isLogged: boolean = false;
+  constructor(private stateService:StateService, private router:Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.stateService.getIsLoggedIn().subscribe((loggedIn: boolean) => {
+      this.isLogged = loggedIn;
+    });
+  }
+
+  goToLogin(){
+    this.router.navigate(['/login']);
+  }
+  goToHome(){
+    this.router.navigate(['/home']);
+  }
+
+  logout() {
+    this.stateService.logout();
+    this.router.navigate(['/home']);
+  }
+
+  goToDashboard(){
+    this.router.navigate(['/dashboard']);
+  }
 
 }

@@ -1,19 +1,16 @@
-<ion-header [translucent]="true">
-  <app-header [title]="title"></app-header> 
-</ion-header>
+<app-header [title]="title"></app-header> 
 
 <ion-content [fullscreen]="true">
-
   <div class="container">
     <h3>Inicio de Sesión</h3>
-    <p>Por favor ingrese su nombre de usuario y contraseña para ingresar al portal academico.</p>
+    <p>Por favor ingrese su nombre de usuario y contraseña para ingresar al portal académico.</p>
     <ion-label>Nombre de Usuario</ion-label>
-    <ion-input placeholder="Ingrese el nombre de usuario" [(ngModel)]="username" type="text" class="ion-padding"></ion-input>
+    <ion-input id="usernameInput" placeholder="Ingrese el nombre de usuario" [(ngModel)]="username" type="text" class="ion-padding" autofocus></ion-input>
     <ion-label>Contraseña</ion-label>
-    <ion-input placeholder="Ingrese la contraseña" [(ngModel)]="password" type="password" class="ion-padding"></ion-input>
-    <ion-label (click)="recuperar()">Recuperar Contraseña</ion-label>
+    <ion-input id="passwordInput" placeholder="Ingrese la contraseña" [(ngModel)]="password" type="password" class="ion-padding"></ion-input>
+    <ion-label [routerLink]="['/recovery']">Recuperar Contraseña</ion-label>
     <div class="ion-text-center">
-      <ion-button  (click)="login()">Ingresar <ion-icon name="caret-forward-outline"></ion-icon></ion-button>
+      <ion-button (click)="login()">Ingresar <ion-icon name="caret-forward-outline"></ion-icon></ion-button>
     </div>
   </div>
 </ion-content>

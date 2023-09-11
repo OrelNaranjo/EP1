@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +11,8 @@ export class StateService {
 
   login(username: string, password: string): boolean {
     if (username == 'admin' && password == 'admin') {
+      this.setIsLoggedIn(true);
+      this.setUsername(username);
       return true;
     }
     return false;
@@ -29,6 +32,11 @@ export class StateService {
 
   getIsLoggedIn() {
     return this.isLoggedIn.asObservable();
+  }
+
+  logout() {
+    this.setIsLoggedIn(false);
+    this.setUsername('');
   }
 
   constructor() { }

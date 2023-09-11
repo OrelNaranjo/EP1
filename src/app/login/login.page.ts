@@ -14,15 +14,13 @@ export class LoginPage implements OnInit {
   constructor(private stateService:StateService, private router:Router) { }
 
   ngOnInit() {
-    console.log(this.title);
   }
 
   login() {
     if (this.stateService.login(this.username, this.password)) {
-      this.stateService.setUsername(this.username);
-      this.router.navigate(['home']);
-      this.stateService.setIsLoggedIn(true);
-      this.stateService.setUsername(this.username);
+      this.router.navigate(['dashboard']);
+    } else {
+      alert('Usuario o contraseña incorrectos');
     }
   }
 
@@ -30,7 +28,7 @@ export class LoginPage implements OnInit {
     this.router.navigate(['home']);
   }
 
-  recuperar() {
-    this.router.navigate(['/recuperar']);
+  recovery() {
+    this.router.navigate(['/recovery']);
   }
 }
