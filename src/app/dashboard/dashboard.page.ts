@@ -14,12 +14,6 @@ export class DashboardPage implements OnInit {
   constructor(private stateService:StateService, private router:Router) { }
 
   ngOnInit() {
-    this.stateService.getIsLoggedIn().subscribe((isLoggedIn) => {
-      if (!isLoggedIn) {
-        console.log('No estás logueado');
-        this.router.navigate(['login']);
-      }
-    });
     this.stateService.username.subscribe((value) => {
       this.username = value;
     });
