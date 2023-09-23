@@ -6,20 +6,20 @@ const routes: Routes = [
 
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'dashboard',
     canActivate: [LoginGuard],
-    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
     path: 'recovery',
-    loadChildren: () => import('./recovery/recovery.module').then( m => m.RecoveryPageModule)
+    loadChildren: () => import('./pages/recovery/recovery.module').then( m => m.RecoveryPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },  
   {
     path: '',
